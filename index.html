@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#101820">
+  <title>A-Frame — Experiências de realidade aumentada</title>
+  <script src="https://aframe.io/releases/1.8.0/aframe.min.js"></script>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      color: #fff;
+      background: #101820;
+      font-family: system-ui, sans-serif;
+    }
+
+    a-scene {
+      position: fixed;
+      inset: 0;
+    }
+
+    header {
+      position: fixed;
+      z-index: 2;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 1.25rem clamp(1rem, 5vw, 4rem);
+      background: linear-gradient(#101820dd, #10182000);
+    }
+
+    h1 {
+      margin: 0 0 0.35rem;
+      font-size: clamp(1.35rem, 3vw, 2rem);
+    }
+
+    p {
+      margin: 0;
+      color: #e2e8ec;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 1rem;
+    }
+
+    nav a {
+      padding: 0.65rem 1rem;
+      border: 1px solid #fff9;
+      border-radius: 0.5rem;
+      color: #fff;
+      background: #101820bb;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    nav a:hover,
+    nav a:focus-visible {
+      background: #fff;
+      color: #101820;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Experiências de realidade aumentada</h1>
+    <p>Explora a cena 3D ou escolhe uma experiência de realidade aumentada.</p>
+    <nav aria-label="Experiências">
+      <a href="./image-tracking/">Deteção de imagem</a>
+      <a href="./location/">Experiência por localização</a>
+    </nav>
+  </header>
+
+  <a-scene>
+    <a-box
+      position="-1 0.5 -3"
+      rotation="0 45 0"
+      color="#6E5049">
+    </a-box>
+    <a-sphere
+      position="0 1.25 -5"
+      radius="1.25"
+      color="#686E49">
+    </a-sphere>
+    <a-cylinder
+      position="1 0.75 -3"
+      radius="0.5"
+      height="1.5"
+      color="#496B6E">
+    </a-cylinder>
+    <a-plane
+      position="0 0 -4"
+      rotation="-90 0 0"
+      width="4"
+      height="4"
+      color="#DB7FD8">
+    </a-plane>
+    <a-text
+      value="Bem-vindo!"
+      position="-1 2.8 -4"
+      color="#CCCCCC"
+      width="6">
+    </a-text>
+    <a-sky color="#68D1E8"></a-sky>
+  </a-scene>
+</body>
+</html>

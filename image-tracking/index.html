@@ -1,0 +1,114 @@
+
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#101820">
+    <title>Deteção de imagem — A-Frame</title>
+
+    <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            color: #fff;
+            background: #101820;
+            font-family: system-ui, sans-serif;
+        }
+
+        a-scene {
+            position: fixed;
+            inset: 0;
+        }
+
+        header {
+            position: fixed;
+            z-index: 2;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 1rem clamp(1rem, 5vw, 3rem);
+            background: linear-gradient(#101820ee, #10182000);
+        }
+
+        h1 {
+            margin: 0 0 0.4rem;
+            font-size: clamp(1.25rem, 3vw, 1.75rem);
+        }
+
+        p {
+            max-width: 48rem;
+            margin: 0;
+            color: #e2e8ec;
+        }
+
+        a {
+            display: inline-block;
+            margin-top: 0.75rem;
+            color: #fff;
+            font-weight: 600;
+        }
+
+        #target-status {
+            margin-top: 0.5rem;
+            color: #ffe08a;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Deteção de imagem</h1>
+        <p>Permite o acesso à câmara e aponta-a para a imagem de referência.</p>
+        <p id="target-status" role="status">
+            Para iniciar o rastreio, é necessário colocar o ficheiro
+            <code>targets.mind</code> nesta pasta. Cria-o com o compilador de
+            alvos do MindAR usando <code>trex-image-big.webp</code>.
+        </p>
+        <a href="../">Voltar à página inicial</a>
+    </header>
+
+    <a-scene
+        mindar-image="imageTargetSrc: ./targets.mind;"
+        color-space="sRGB"
+        renderer="colorManagement: true"
+        vr-mode-ui="enabled: false"
+        device-orientation-permission-ui="enabled: false">
+
+        <a-assets>
+            <img id="trex" src="./trex-image-big.webp">
+        </a-assets>
+
+        <a-camera
+            position="0 0 0"
+            look-controls="enabled: false">
+        </a-camera>
+
+        <!-- A imagem detetada é o alvo 0 -->
+        <a-entity mindar-image-target="targetIndex: 0">
+
+            <!-- Objeto virtual -->
+            <a-box
+                position="0 0.3 0"
+                color="blue"
+                scale="0.3 0.3 0.3">
+            </a-box>
+
+            <!-- Imagem de referência -->
+            <a-plane
+                src="#trex"
+                position="0 0 0"
+                height="0.7"
+                width="1">
+            </a-plane>
+
+        </a-entity>
+
+    </a-scene>
+</body>
+</html>
