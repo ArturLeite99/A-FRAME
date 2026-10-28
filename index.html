@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt">
 <head>
@@ -5,7 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#101820">
   <title>A-Frame — Experiências de realidade aumentada</title>
+
   <script src="https://aframe.io/releases/1.8.0/aframe.min.js"></script>
+
   <style>
     * {
       box-sizing: border-box;
@@ -67,10 +70,12 @@
     }
   </style>
 </head>
+
 <body>
   <header>
     <h1>Experiências de realidade aumentada</h1>
     <p>Explora a cena 3D ou escolhe uma experiência de realidade aumentada.</p>
+
     <nav aria-label="Experiências">
       <a href="./image-tracking/">Deteção de imagem</a>
       <a href="./location/">Experiência por localização</a>
@@ -83,17 +88,20 @@
       rotation="0 45 0"
       color="#6E5049">
     </a-box>
+
     <a-sphere
       position="0 1.25 -5"
       radius="1.25"
       color="#686E49">
     </a-sphere>
+
     <a-cylinder
       position="1 0.75 -3"
       radius="0.5"
       height="1.5"
       color="#496B6E">
     </a-cylinder>
+
     <a-plane
       position="0 0 -4"
       rotation="-90 0 0"
@@ -101,12 +109,14 @@
       height="4"
       color="#DB7FD8">
     </a-plane>
+
     <a-text
       value="Bem-vindo!"
       position="-1 2.8 -4"
       color="#CCCCCC"
       width="6">
     </a-text>
+
     <a-sky color="#68D1E8"></a-sky>
   </a-scene>
 </body>
